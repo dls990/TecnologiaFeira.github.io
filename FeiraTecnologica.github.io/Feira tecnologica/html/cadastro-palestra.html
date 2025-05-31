@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Palestras</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+        }
+        h2 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="datetime-local"],
+        textarea {
+            width: calc(100% - 20px);
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-size: 1rem;
+        }
+        textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1.1rem;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .message {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            border-radius: 5px;
+            display: none; /* Escondido por padrão */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Cadastro de Palestras</h2>
+        <form action="/php/informacoes-cadastro-palestra.php">
+            <label for="nomePalestra">Nome da Palestra: Inteligencia Artificial</label>
+            <input type="text" id="nomePalestra" name="nomePalestra" required>
+
+            <label for="descricao">Descrição: Está palestra apresentará como a IA </label>
+            <textarea id="descricao" name="descricao" required></textarea>
+
+            <label for="palestrante">Palestrante:</label>
+            <input type="text" id="palestrante" name="palestrante" required>
+
+            <label for="horario">Horário:</label>
+            <input type="datetime-local" id="horario" name="horario" required>
+
+            <button type="submit">Cadastrar Palestra</button>
+        </form>
+        
+
+
+</body>
+</html>

@@ -1,0 +1,139 @@
+header{
+    display: flex;
+    justify-content: space-between;
+    margin: 0px 0px;
+    padding: 0px;
+    background-color: rgb(0, 0, 0);
+}
+
+.mm{
+    display: flex;
+}
+
+nav ul li{
+    display: flex;
+    text-decoration: none;
+    
+}
+
+nav ul li a{
+    text-decoration: none;
+    display: flex;
+    color: rgb(255, 255, 255);
+}
+
+nav ul{
+    display: flex;
+    margin: 20px 20px;
+    padding: 20px 20px;
+    gap: 20px 20px;
+}
+
+h1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 100px;
+}
+
+img{
+    border-radius: 15px;
+}
+
+ body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            background-color: #f4f7fa;
+            color: #333;
+            line-height: 1.6;
+            scroll-behavior: smooth; /* Adiciona rolagem suave em toda a página */
+        }
+
+        /* Estilo para o cabeçalho inicial da página */
+        .page-header {
+            background-color: #007bff;
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+            font-size: 1.5em;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 50px;
+        }
+
+        .page-header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        /* Container principal para o conteúdo que será animado */
+        .main-content {
+            max-width: 1000px; /* Largura máxima do conteúdo */
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* --- Estilos para a Animação de Rolagem --- */
+
+        /* Classe base para todos os itens que serão revelados */
+        .reveal-item {
+            opacity: 0; /* Começa invisível */
+            transform: translateY(50px); /* Começa ligeiramente abaixo */
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out; /* Transição suave para a animação */
+            margin-bottom: 40px; /* Espaçamento entre os blocos de conteúdo */
+            background-color: #ffffff; /* Fundo branco para os blocos de texto */
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Estilo específico para a imagem dentro de um item revelado */
+        .reveal-item img {
+            max-width: 100%; /* Garante que a imagem seja responsiva */
+            height: auto; /* Mantém a proporção */
+            display: block; /* Remove espaço extra abaixo da imagem */
+            border-radius: 8px; /* Arredonda as bordas da imagem */
+        }
+
+        /* Estilo para o placeholder que contém o título principal da feira */
+        .placeholder-title {
+            opacity: 0; /* Invisível inicialmente */
+            transform: translateY(50px); /* Deslocado para baixo */
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out; /* Transição para animação */
+            text-align: center;
+            margin-bottom: 40px; /* Espaçamento */
+        }
+
+        .placeholder-title h1 {
+            font-size: 2.5em;
+            color: #007bff; /* Cor do título principal */
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
+        /* Classe que o JavaScript adiciona para ativar a animação */
+        .is-visible {
+            opacity: 1; /* Torna o item visível */
+            transform: translateY(0); /* Move o item para sua posição original */
+        }
+
+        /* Ajustes para o texto principal para melhor leitura */
+        .reveal-item p {
+            white-space: pre-line; /* Preserva quebras de linha e espaços para formatação */
+            text-align: justify; /* Justifica o texto para um visual limpo */
+        }
+
+        .reveal-item h3 {
+            color: #0056b3; /* Cor para os subtítulos dentro do texto */
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+
+        /* Rodapé da página */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: #333;
+            color: white;
+            font-size: 0.9em;
+            margin-top: 60px;
+        }

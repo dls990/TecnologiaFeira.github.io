@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style/inicio.css">
+    <title>Inicio feira tecnologica</title>
+</head>
+<body>
+    <header>
+        <img src="/img/th.jfif" alt="Logo" height="100px" width="300px">
+        <nav>
+         <div class="mm">
+            <ul>
+               <li><a href="/html/cadastro-palestra.html">Cadastro-palestra</a></li>
+               <li><a href="/html/cadastro.html">Cadastro</a></li>
+               <li><a href="/html/contato.html">Contato</a></li>
+               <li><a href="/html/mapa-evento.html">Mapa Evento</a></li>
+            </ul>
+         </div>
+        </nav>
+    </header>
+
+    <h1>Olá, seja bem-vindo a feira tecnologica</h1>
+
+<div class="content-section" >
+  <div class="reveal-item">
+<img src="/img/senai-sp.jpg" alt="Imagem Do local" width="1250px" height="600px">
+  </div>
+
+<div class="placeholder">
+<h1>Feira Tecnológica SENAI: Inovação e Talento em Destaque</h1>
+</div>
+
+<div class="reveal-item">
+   <p>A Feira Tecnológica do SENAI é um evento dinâmico e inspirador que apresenta o que há de mais inovador e promissor nas áreas de tecnologia e indústria. É uma vitrine do talento e da criatividade dos alunos e instrutores do SENAI, que transformam ideias em projetos reais e soluções que impactam o mercado.
+
+Neste evento, você terá a oportunidade de:
+
+Explorar Projetos Inovadores: Conheça de perto protótipos, sistemas e produtos desenvolvidos por jovens talentos, que demonstram o aprendizado prático e a aplicação de conhecimentos em diversas áreas, como automação industrial, energias renováveis, inteligência artificial, desenvolvimento de software, mecânica de precisão e muito mais.
+Interagir com o Futuro: Participe de demonstrações interativas, converse com os criadores dos projetos e entenda os desafios e as oportunidades que a tecnologia oferece para o futuro da indústria e da sociedade.
+Conectar-se com o Talento: Para empresas e profissionais da área, a feira é uma excelente chance de identificar novos talentos, potenciais parceiros e soluções que podem otimizar processos e gerar valor.
+Inspirar-se: Veja como a educação profissional do SENAI prepara os alunos para os desafios do mundo do trabalho, incentivando a inovação e o empreendedorismo.
+A Feira Tecnológica do SENAI é um ponto de encontro entre o conhecimento acadêmico e as demandas do setor produtivo, consolidando o papel da instituição na formação de profissionais capacitados e na promoção do desenvolvimento tecnológico. Não perca a chance de presenciar o que há de mais avançado em tecnologia e o futuro da indústria!</p>
+</div>
+
+
+  <script>
+        document.addEventListener('DOMContentLoaded', () => {
+           
+            const elementsToAnimate = document.querySelectorAll('.reveal-item, .placeholder-title');
+
+            const observerOptions = {
+                root: null, 
+                rootMargin: '0px', 
+                threshold: 0.1 
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                       
+                        entry.target.classList.add('is-visible');
+                       
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            elementsToAnimate.forEach(element => {
+                observer.observe(element);
+            });
+        });
+    </script>
+
+</div>
+</body>
+</html>
