@@ -3,36 +3,130 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/style/cadastro.css">
+    <link rel="stylesheet" href="/FeiraTecnologica.github.io/Feira tecnologica/style/cadastro.css">
     <title>Cadastro participantes</title>
 </head>
 <body>
 <header>
-    <img src="/img/th.jfif" alt="" height="100px" width="300px" style="border-radius: 15px;">
+    <img src="/FeiraTecnologica.github.io/Feira tecnologica/img/th.jfif" alt="" height="100px" width="300px" style="border-radius: 15px;">
 </header>
 
 
-    <section class="cadastro">
-        <h2>Cadastro Participantes</h2>
-        <div class="informacoes">
-            <div>
-                <form action="/php/informacoes-cadastro-participantes.php" method="post">
-                    <input class="info" type="text" placeholder="Nome" required>
+<div class="Voltar">
+<a href="javascript:history.go(-1)" style="text-decoration: none; color: aliceblue;">Voltar para pagina anterior</a>
+</div>
 
-                    <input class="info" type="email" placeholder="Email" required>
 
-                    <input class="inf" type="date" placeholder="Data" required>
+    <form id="formParticipacao" action="/FeiraTecnologica.github.io/Feira tecnologica/php/informacoes-cadastro-participante.php" method="post">
 
-                    <input class="info" type="password" placeholder="Senha" required>
 
-                    <input class="button" type="button" value="Cadastrar-se">
-                </form>
-            </div>
+        <h2>Cadastro de Participantes</h2>
+        <label for="nome">Nome completo</label>
+          <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo" required>
+          <label for="date">Nascimento</label>
+          <input type="date" id="anoNascimento" name="anoNascimento" placeholder="Digite seu ano de nascimento" required>
+          <label for="telefone">Telefone</label>
+          <input type="number" id="telefone" name="telefone" placeholder="Digite seu telefone" required>
+          <label for="palestra">Palestra/oficina</label>
+          <select name="Palestra" id="">
+            <option value="" disabled selected>Palestra</option>
+            <option value="Segurança-no-trabalho">Segurança no trabalho</option>
+            <option value="Tecnologia-e-seus-impactos">Tecnologia e seus impactos</option>
+          </select>
+
+
+
+
+        <div>
+            <label for="tipoParticipante">Você é:</label>
+            <select id="tipoParticipante" name="tipoParticipante">
+                <option value="">-- Selecione --</option>
+                <option value="aluno">Aluno</option>
+                <option value="paiResponsavel">Pai ou Responsável</option>
+            </select>
         </div>
-    </section>
 
+        <div id="campoRM" class="hidden">
+            <label for="rm">RM do Aluno:</label>
+            <input type="text" id="rm" name="rm" placeholder="Digite o RM do aluno">
+            <div id="rmError" class="error-message hidden">Por favor, digite o RM do Aluno.</div>
+        </div>
 
-    <div class="bg"></div>
+        <div id="campoCPF" class="hidden">
+            <label for="cpf">CPF do Pai/Responsável:</label>
+            <input type="text" id="cpf" name="cpf" placeholder="Digite o CPF do Pai/Responsável">
+            <div id="cpfError" class="error-message hidden">Por favor, digite o CPF do Pai/Responsável.</div>
+        </div>
+
+        <button type="submit">Prosseguir</button>
+    </form>
+
+    <script>
+       
+        const tipoParticipanteSelect = document.getElementById('tipoParticipante');
+        const campoRM = document.getElementById('campoRM');
+        const campoCPF = document.getElementById('campoCPF');
+        const inputRM = document.getElementById('rm');
+        const inputCPF = document.getElementById('cpf');
+        const rmError = document.getElementById('rmError');
+        const cpfError = document.getElementById('cpfError');
+        const formParticipacao = document.getElementById('formParticipacao');
+
+       
+        function toggleFields() {
+        
+            campoRM.classList.add('hidden');
+            campoCPF.classList.add('hidden');
+            rmError.classList.add('hidden');
+            cpfError.classList.add('hidden');
+
+           
+            inputRM.value = '';
+            inputCPF.value = '';
+
+            const selectedValue = tipoParticipanteSelect.value;
+
+            if (selectedValue === 'aluno') {
+                campoRM.classList.remove('hidden');
+            } else if (selectedValue === 'paiResponsavel') {
+                campoCPF.classList.remove('hidden');
+            }
+        }
+
+      
+        tipoParticipanteSelect.addEventListener('change', toggleFields);
+
+       
+        formParticipacao.addEventListener('submit', function(event) {
+         
+            event.preventDefault();
+
+            
+            rmError.classList.add('hidden');
+            cpfError.classList.add('hidden');
+
+            const selectedValue = tipoParticipanteSelect.value;
+            let isValid = true; 
+
+            if (selectedValue === '') {
+                alert('Por favor, selecione se você é Aluno ou Pai/Responsável.');
+                isValid = false;
+            } else if (selectedValue === 'aluno') {
+                if (inputRM.value.trim() === '') {
+                    rmError.classList.remove('hidden');
+                    isValid = false;
+                }
+            } else if (selectedValue === 'paiResponsavel') {
+                if (inputCPF.value.trim() === '') {
+                    cpfError.classList.remove('hidden');
+                    isValid = false;
+                }
+            }
+
+        });
+    </script>
+   
+       <div class="bg"></div>
 <div class="bg bg2"></div>
 <div class="bg bg3"></div>
 <div class="content">
